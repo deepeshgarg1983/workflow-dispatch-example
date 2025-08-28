@@ -1,21 +1,22 @@
-name: Manual Trigger
+name: Manual Trigger with Inputs
 
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-      tags:
-        description: 'Test scenario tags'
+      name:
+        description: "Who to greet"
         required: false
+        default: "World"
+      age:
+        description: "Age to display"
+        required: false
+        default: "25"
 
 jobs:
-  printInputs:
+  greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Print inputs
+      - name: Say Hello
         run: |
-          echo "Log level: ${{ github.event.inputs.logLevel }}"
-          echo "Tags: ${{ github.event.inputs.tags }}"
+          echo "Hello ${{ github.event.inputs.name }}!"
+          echo "You are ${{ github.event.inputs.age }} years old."
