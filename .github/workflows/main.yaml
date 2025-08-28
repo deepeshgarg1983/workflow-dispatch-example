@@ -6,7 +6,7 @@ on:
       name:
         description: "Who to greet"
         required: false
-        default: "World"
+        default: "My World"
       age:
         description: "Age to display"
         required: false
